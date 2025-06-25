@@ -20,7 +20,6 @@ public class EnterKeySceneLoader : MonoBehaviour
 
         if (Keyboard.current.enterKey.wasPressedThisFrame)
         {
-            SceneController.instance.NextLevel();
         }
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
