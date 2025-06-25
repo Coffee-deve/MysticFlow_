@@ -26,29 +26,31 @@ public class Map
         }
         return instance;
     }
-
-    public void SolveAlgorithm(string startNodeName)
+    public void SolveAlgorithm()
     {
-        var startNode = Nodes.FirstOrDefault(n => n.Name == startNodeName);
-        if (startNode != null)
+        if (Nodes.Count == 0)
         {
-            SolveAlgorithm(startNode);
+            Console.WriteLine("The map has no nodes.");
+            return;
         }
-        else
-        {
-            Console.WriteLine($"Start node '{startNodeName}' not found.");
-        }
-    }
 
-    public void SolveAlgorithm(Node start)
-    {
-        Console.WriteLine("Running Dijkstra algorithm...");
+        Node start = Nodes[0]; // First node as a start
+        Node goal = Nodes.Last(); // Last node G is goal
+        if (goal == null)
+        {
+            Console.WriteLine("Goal node 'G' not found.");
+            return;
+        }
+        Console.WriteLine("Running Dijkstra algorithm");
+
         var distances = new Dictionary<Node, int>();
+        var previous = new Dictionary<Node, Node>(); // To track path
         var queue = new List<Node>();
 
         foreach (var node in Nodes)
         {
             distances[node] = int.MaxValue;
+            previous[node] = null;
             node.State = NodeState.Unknown;
             queue.Add(node);
         }
@@ -68,20 +70,38 @@ public class Map
                 if (alt < distances[neighbor.Key])
                 {
                     distances[neighbor.Key] = alt;
+                    previous[neighbor.Key] = current; // Track path
                     neighbor.Key.State = NodeState.KnownButNotFastest;
                 }
             }
         }
 
-        PrintResults(distances);
+        PrintResults(distances, previous, start, goal);
     }
 
-    private void PrintResults(Dictionary<Node, int> distances)
+    private void PrintResults(Dictionary<Node, int> distances, Dictionary<Node, Node> previous, Node start, Node goal)
     {
-        Console.WriteLine("Shortest distances:");
+        Console.WriteLine("\nShortest distances from start:");
         foreach (var pair in distances)
         {
             Console.WriteLine($"{pair.Key.Name}: {pair.Value}");
+        }
+
+        Console.WriteLine("\nShortest path from start to goal:");
+        var path = new List<Node>();
+        for (Node at = goal; at != null; at = previous[at])
+        {
+            path.Insert(0, at);
+        }
+
+        if (path[0] != start)
+        {
+            Console.WriteLine("No path found.");
+        }
+        else
+        {
+            Console.WriteLine(string.Join(" -> ", path.Select(n => n.Name)));
+            Console.WriteLine($"Total cost: {distances[goal]}");
         }
     }
 

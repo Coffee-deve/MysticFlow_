@@ -16,6 +16,7 @@ public class NodeController : MonoBehaviour
         {
             circle.GetComponent<SpriteRenderer>().color = Color.red;
         }
+    
     }
 
     // Update is called once per frame
@@ -28,5 +29,8 @@ public class NodeController : MonoBehaviour
                 circle.GetComponent<SpriteRenderer>().color = Color.green;
             }
         }
+
+       
     }
+  
 }
