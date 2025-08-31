@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-
 public class InventoryState : GameState
     {
     public override void Enter(SceneController controller)
@@ -16,7 +15,7 @@ public class InventoryState : GameState
        
     }
 
-    public override void KeyboardInput(SceneController controller)
+    public override void GoToInventory(SceneController controller)
     {
 
     }
