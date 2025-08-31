@@ -1,3 +1,4 @@
+
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,6 +36,8 @@ public class SceneController : MonoBehaviour
     {
         currentState = newState;
     }
+
+ 
 
     void Start()
     {
