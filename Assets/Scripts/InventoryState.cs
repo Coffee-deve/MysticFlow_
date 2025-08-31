@@ -19,8 +19,5 @@ public class InventoryState : GameState
     public override void KeyboardInput(SceneController controller)
     {
 
-  
-        
-
     }
 }

@@ -24,8 +24,6 @@ public class NodeController : MonoBehaviour
         }
     
     }
-
-    // Update is called once per frame
     void Update()
     {
 
@@ -50,8 +48,6 @@ public class NodeController : MonoBehaviour
                     lastHovered = current;
                 }
             }
-
-
         }
     }
         void ResetLastHovered()

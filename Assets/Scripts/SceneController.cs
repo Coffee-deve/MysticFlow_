@@ -1,14 +1,16 @@
 
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 
 public class SceneController : MonoBehaviour
 {
     //public static SceneController instance; // singleton for SceneController
     GameState currentState; // holds a reference to the active state
-    public static SceneController instance;
+   public static SceneController instance;
    public MenuState menuState = new MenuState();
    public DuringGameState gameState = new DuringGameState();
    public MapState mapState = new MapState();
@@ -37,8 +39,6 @@ public class SceneController : MonoBehaviour
         currentState = newState;
     }
 
- 
-
     void Start()
     {
         currentState = menuState;
@@ -60,5 +60,6 @@ public class SceneController : MonoBehaviour
         {
             currentState.KeyboardInput(this);
         }
+ 
     }
 }
