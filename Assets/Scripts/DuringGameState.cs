@@ -18,7 +18,7 @@ public class DuringGameState : GameState
         
     }
 
-    public override void KeyboardInput(SceneController controller)
+    public override void GoToInventory(SceneController controller)
     {
         controller.LoadScene("Inventory");
         controller.ChangeState(new InventoryState());

@@ -6,6 +6,6 @@ public abstract class GameState
 
     public abstract void Enter(SceneController controller);
     public abstract void Exit(SceneController controller);
-    public abstract void KeyboardInput(SceneController controller);
+    public abstract void GoToInventory(SceneController controller);
 
 }

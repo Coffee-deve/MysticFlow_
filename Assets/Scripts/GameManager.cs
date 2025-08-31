@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEditor;
 #endif
 
+// only works in testing when we start from menu scene
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;

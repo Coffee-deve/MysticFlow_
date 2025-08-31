@@ -15,7 +15,7 @@ using UnityEngine;
         Application.Quit();
     }
 
-    public override void KeyboardInput(SceneController controller)
+    public override void GoToInventory(SceneController controller)
     { 
 
     }

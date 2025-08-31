@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-
+// only works in testing when we start from menu scene
 public class SceneController : MonoBehaviour
 {
     //public static SceneController instance; // singleton for SceneController
@@ -14,7 +14,7 @@ public class SceneController : MonoBehaviour
    public MenuState menuState = new MenuState();
    public DuringGameState gameState = new DuringGameState();
    public MapState mapState = new MapState();
-   public  InventoryState inventoryState = new InventoryState();
+   public InventoryState inventoryState = new InventoryState();
 
     private void Awake()
     {
@@ -58,7 +58,7 @@ public class SceneController : MonoBehaviour
         }
         if(Keyboard.current.iKey.wasPressedThisFrame)
         {
-            currentState.KeyboardInput(this);
+            currentState.GoToInventory(this);
         }
  
     }
